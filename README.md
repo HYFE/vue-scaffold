@@ -6,15 +6,19 @@
 
 ## 使用
 
-```
+```bash
 # 获取脚手架到 vue-project 目录或自定义目录
 $ git clone git@github.com:HYFE/vue-scaffold.git vue-project
+
 # 进入工作目录或你的自定义目录
 $ cd vue-project
+
 # 安装依赖
 $ npm install
+
 # 启动开发服务
 $ npm run dev
+
 # 打包
 $ npm run build
 ```
@@ -58,7 +62,7 @@ $ npm run build
 
 ## 数据流
 
-![Vue-dev-data-flow](https://www.processon.com/chart_image/5829c55be4b00c4fc8a4cd80.png)
+![Vue-dev-data-flow](https://camo.githubusercontent.com/54f50d197278348424eb0a3a2778a77f6b7c45b8/68747470733a2f2f7777772e70726f636573736f6e2e636f6d2f63686172745f696d6167652f3538323963353562653462303063346663386134636438302e706e67)
 
 ## 工作流
 
@@ -66,7 +70,7 @@ $ npm run build
 
 编辑 `config/mock.conf.js`，定义API接口及数据格式。
 
-```
+```js
 {
     // url 
     url: '/city',
@@ -318,7 +322,7 @@ export default {
 
 事件无额外参数时，不需要写括号，默认参数即为 `event`。
 
-```
+```html
 <!-- bad -->
 <a v-on:click="onClick()">click</a>
 
