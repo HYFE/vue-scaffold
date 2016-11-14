@@ -4,6 +4,7 @@
         <ul>
             <li v-for="item in citys">{{ item }}</li>
         </ul>
+        <p v-if="citysCount">共 {{citysCount}} 条数据</p>
     </div>
 </template>
 <script>
@@ -15,7 +16,10 @@ export default {
     },
     computed: {
         citys() {
-            return this.$store.getters.citys
+            return this.$store.state.citys
+        },
+        citysCount() {
+            return this.$store.getters.citysCount
         }
     }
 }

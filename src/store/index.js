@@ -12,8 +12,8 @@ export default new Vuex.Store({
     mutations,
     actions,
     getters: {
-        citys(state) {
-            return state.citys
+        citysCount(state) {
+            return Object.keys(state.citys).length
         }
     },
     modules: {}
