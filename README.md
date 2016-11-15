@@ -27,7 +27,7 @@
 
 ## 介绍
 
-基于 Webpack 的 Vue SPA 开发环境，支持 ES6、Less、ESlint，种子项目已集成 vuex、vue-router、vue-resources、mockjs。
+基于 Webpack 的 Vue2 SPA 开发环境，支持 ES6、Less、ESlint、e2e test，种子项目已集成 vuex、vue-router、vue-resources、mockjs。
 
 ## 使用
 
@@ -79,6 +79,14 @@ $ npm run build
 │   │   │   └── ...
 │   ├── api/
 │   │   └── index.js            # 最终请求后端的地方
+├── test/
+│   ├── e2e/                    # e2e test
+│   │   ├── custom-assertions/  # 自定义断言
+│   │   │   └── ...
+│   │   ├── specs/              # 测试用例
+│   │   │   └── ...
+│   │   ├── nightwatch.conf.js  # nightwatch 配置
+│   │   ├── runner.js           # e2e start
 ├── .editorconfig               # 编辑器配置
 ├── .eslintignore               # eslint ignore conf
 ├── .eslintrc.js                # eslint conf
@@ -287,7 +295,7 @@ describe('Hello.vue', () => {
 })
 ```
 
-在单元测试环境中，被测试组件将与其他 Vue 组件和模块（如：vuex、router等）隔离。这意味着如果一个组件依赖其他组件或模块，会难以达到单元测试的条件。
+在单元测试环境中，被测试组件将与其他 Vue 组件和模块（如：vuex、vueRouter等）隔离。这意味着如果一个组件依赖其他组件或模块，会难以达到单元测试的条件。
 
 **期望：**
 
@@ -301,14 +309,14 @@ describe('Hello.vue', () => {
 
 图片来自 [搭建自己的前端自动化测试脚手架](https://segmentfault.com/a/1190000005991670?share_user=1030000002791361)
 
-只需要敲一条命名，就能启动浏览器窗口，安装你预定的动作对页面模拟操作，在整个测试周期结束后显示测试结果。这才是我们理想中的自动化测试啊！
+只需要敲一条命名，就能启动浏览器窗口，按照你预定的动作对页面模拟操作，在整个测试周期结束后显示测试结果。这才是我们理想中的自动化测试啊！
 
 这是目前集成的示例项目中的测试用例：
 
 ```js
 module.exports = {
     'default e2e tests': function (browser) {
-        // http://nightwatchjs.org/api
+        // doc: http://nightwatchjs.org/api
         const devServer = browser.globals.devServerURL
 
         browser.url(devServer)
@@ -349,7 +357,7 @@ module.exports = {
 
 在前端范围使用 MockJS 时，它会对 XHR 对象进行覆盖，匹配到对应 URL 后直接返回对应数据，不会真正发出请求。
 
-就像覆盖 `alert`，参数为对象时不弹出，而是在 `console` 输出：
+比如这个例子，覆盖 `alert`，参数为对象时不弹出，而是在 `console` 输出：
 
 ```js
 var _alert = alert
