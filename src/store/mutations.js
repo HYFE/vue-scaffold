@@ -1,5 +1,5 @@
 export default {
-    CITYS(state, data) {
+    citys(state, data) {
         state.citys = data
     }
 }

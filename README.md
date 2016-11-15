@@ -35,7 +35,7 @@ $ npm run build
 │   ├── webpack.base.conf.js
 │   ├── webpack.dev.conf.js
 │   ├── webpack.prod.conf.js
-├── src/                    
+├── src/
 │   ├── main.js                 # 项目入口文件
 │   ├── router.js               # 路由配置
 │   ├── App.vue                 # main app component
@@ -52,7 +52,7 @@ $ npm run build
 │   │   ├── mutations.js        # 根 mutations
 │   │   ├── modules/            # 根据业务逻辑划分子模块
 │   │   │   └── ...
-│   ├── api/ 
+│   ├── api/
 │   │   └── index.js            # 最终请求后端的地方
 ├── .editorconfig               # 编辑器配置
 ├── .eslintignore               # eslint ignore conf
@@ -72,7 +72,7 @@ $ npm run build
 
 ```js
 {
-    // url 
+    // url
     url: '/city',
     // Mock template
     data: {
@@ -277,8 +277,8 @@ methods: {
 引用：
 
 ```js
-import MyHeader from 'components/MyHeader'  
-import MyList from 'components/MyList' 
+import MyHeader from 'components/MyHeader'
+import MyList from 'components/MyList'
 import MyFooter from 'components/MyFooter'
 
 export default {

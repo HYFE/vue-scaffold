@@ -1,7 +1,7 @@
 module.exports = [
     // template example
     {
-        // url 
+        // url
         url: '/city',
         // Mock template
         data: {
@@ -17,7 +17,7 @@ module.exports = [
     // 适用于需要动态切换数据的场景
     {
         url: '/bbb/:type',
-        // Mock function 
+        // Mock function
         // 根据参数动态切换数据
         // @req: Express request
         data: function (req) {
@@ -28,7 +28,7 @@ module.exports = [
                         "Mock.js"
                     ]
                 }
-            } 
+            }
             return {
                 "name" : "Mock.js"
             }
