@@ -58,7 +58,7 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.3.2",
     "vue-html-loader": "^1.2.2",
-    "vue-loader": "^9.4.0",
+    "vue-loader": "^9.9.5",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
