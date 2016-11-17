@@ -75,7 +75,8 @@ module.exports = {
     },
     babel: {
         presets: ['es2015', 'stage-2'],
-        plugins: ['transform-runtime']
+        plugins: ['transform-runtime'],
+        comments: false
     },
     postcss: [autoprefixer({
         browsers: ['last 3 versions']
