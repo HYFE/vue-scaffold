@@ -2,7 +2,7 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-    'default e2e tests': function (browser) {
+    'default e2e tests'(browser) {
         // http://nightwatchjs.org/api
         const devServer = browser.globals.devServerURL
 

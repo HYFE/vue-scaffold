@@ -44,6 +44,9 @@ $ npm install
 # 启动开发服务
 $ npm run dev
 
+# e2e test
+$ npm run e2e
+
 # 打包
 $ npm run build
 ```

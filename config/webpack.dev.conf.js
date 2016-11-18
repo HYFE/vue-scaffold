@@ -1,11 +1,11 @@
-var webpack = require('webpack')
-var merge = require('webpack-merge')
-var baseConfig = require('./webpack.base.conf')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.base.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // add hot-reload related code to entry chunks
-Object.keys(baseConfig.entry).forEach(function (name) {
+Object.keys(baseConfig.entry).forEach( name => {
     baseConfig.entry[name] = ['./config/dev-client'].concat(baseConfig.entry[name])
 })
 

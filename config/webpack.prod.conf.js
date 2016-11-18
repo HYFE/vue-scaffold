@@ -1,8 +1,8 @@
-var webpack = require('webpack')
-var merge = require('webpack-merge')
-var baseConfig = require('./webpack.base.conf')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.base.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(baseConfig, {
     devtool: '#source-map',
@@ -30,7 +30,7 @@ module.exports = merge(baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin('[name].[contenthash].css'),
         new HtmlWebpackPlugin({
-            filename: '../public/index.html',
+            filename: 'index.html',
             template: 'src/index.html',
             inject: true,
             minify: {

@@ -1,7 +1,7 @@
-var path = require('path')
-var projectRoot = path.resolve(__dirname, '../')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var autoprefixer = require('autoprefixer')
+const path = require('path')
+const projectRoot = path.resolve(__dirname, '../')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
     entry: {

@@ -1,11 +1,11 @@
-var Mock = require('mockjs')
-var configs = require('./mock.conf')
+const Mock = require('mockjs')
+const configs = require('./mock.conf')
 
-module.exports = function(app) {
+module.exports = app => {
 
-    configs.forEach(function(item) {
-        app[item.method || 'get'](item.url, function (req, res) {
-            var template = typeof item.data === 'function' ? item.data(req) : item.data
+    configs.forEach(({url, method = 'get', data }) => {
+        app[method](url, (req, res) => {
+            const template = typeof data === 'function' ? data(req) : data
             res.send(Mock.mock(template))
         })
     })

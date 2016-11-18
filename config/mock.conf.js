@@ -20,8 +20,8 @@ module.exports = [
         // Mock function
         // 根据参数动态切换数据
         // @req: Express request
-        data: function (req) {
-            var type = req.param('type')
+        data(req) {
+            const type = req.param('type')
             if(type === 'array') {
                 return {
                     "citys|1-10": [
