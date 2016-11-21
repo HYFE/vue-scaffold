@@ -39,9 +39,6 @@ module.exports = {
             test: /\.vue$/,
             loader: 'vue'
         }, {
-            test: /\.(css|less)$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css!postcss!less')
-        }, {
             test: /\.js$/,
             loader: 'babel',
             include: projectRoot,

@@ -43,5 +43,7 @@ module.exports = app.listen(3000, err => {
     }
     const uri = 'http://localhost:3000'
     console.log(`Listening at ${uri}\n`)
-    opn(uri)
+    if (process.env.NODE_ENV !== 'testing') {
+        opn(uri)
+    }
 })

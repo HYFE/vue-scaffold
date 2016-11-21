@@ -10,6 +10,12 @@ Object.keys(baseConfig.entry).forEach( name => {
 })
 
 module.exports = merge(baseConfig, {
+    module: {
+        loaders: [{
+            test: /\.(css|less)$/,
+            loader: 'vue-style!css!less'
+        }]
+    },
     devtool: '#eval-source-map',
     output: {
         publicPath: '/'
@@ -22,8 +28,7 @@ module.exports = merge(baseConfig, {
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("[name].css"),
-        // new webpack.NoErrorsPlugin(),
+        new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html',

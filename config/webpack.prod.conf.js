@@ -5,6 +5,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(baseConfig, {
+    module: {
+        loaders: [{
+            test: /\.(css|less)$/,
+            loader: ExtractTextPlugin.extract('style-loader', 'css!postcss!less')
+        }]
+    },
     devtool: '#source-map',
     output: {
         filename: '[name].[chunkhash].js',
@@ -12,7 +18,7 @@ module.exports = merge(baseConfig, {
     },
     vue: {
         loaders: {
-            css: ExtractTextPlugin.extract('vue-style-loader', 'css?sourceMap!postcss?sourceMap?sourceMap'),
+            css: ExtractTextPlugin.extract('vue-style-loader', 'css?sourceMap!postcss?sourceMap'),
             less: ExtractTextPlugin.extract('vue-style-loader', 'css?sourceMap!postcss?sourceMap!less?sourceMap')
         }
     },
