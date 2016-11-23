@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="getData">Get</button>
+        <button @click="e => getData(e)">Get</button>
         <ul>
             <li v-for="item in citys">{{ item }}</li>
         </ul>
@@ -10,7 +10,9 @@
 <script>
 export default {
     methods: {
-        getData() {
+        getData(e) {
+            // arrow functions in v-on handlers
+            // console.log(e)
             this.$store.dispatch('getCitys')
         }
     },
