@@ -1,5 +1,8 @@
 <style lang="less">
 @import './less/app';
+#app {
+    margin: 30px;
+}
 </style>
 <template>
     <div id="app">
