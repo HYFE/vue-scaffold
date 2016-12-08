@@ -495,6 +495,15 @@ export default {
     @on-change="onChange"></my-component>
 ```
 
+无 `slot` 的组件可以单独闭合。
+
+```html
+<!-- bad -->
+<my-loding :show="show"></my-loding>
+<!-- good -->
+<my-loding :show="show"/>
+```
+
 ### 其他
 
 * 推荐以 ES6 为开发语言，参考 [ES6入门](http://es6.ruanyifeng.com/) 以及 [ES6代码规范](https://github.com/yuche/javascript)
