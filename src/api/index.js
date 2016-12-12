@@ -1,9 +1,5 @@
-import Vue from 'vue'
+import { GET } from './util'
 
 export default {
-    getCitys() {
-        return Vue.http.get('/city')
-            .then(res => res.json(),
-                res => console.error('error: ', res.status, res.statusText))
-    }
+    getCitys: () => GET('/city')
 }
