@@ -1,7 +1,9 @@
+const webpack = require('webpack')
 const path = require('path')
 const projectRoot = path.resolve(__dirname, '../')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+const LodashWebpackPlugin = require('lodash-webpack-plugin')
 
 module.exports = {
     entry: {
@@ -77,5 +79,8 @@ module.exports = {
     },
     postcss: [autoprefixer({
         browsers: ['last 3 versions']
-    })]
+    })],
+    plugins: [
+        new LodashWebpackPlugin()
+    ]
 }
