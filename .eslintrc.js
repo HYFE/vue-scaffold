@@ -11,7 +11,13 @@ module.exports = {
     plugins: [
         'html'
     ],
-
+    env: {
+        'browser': true,
+        'node': true
+    },
+    globals: {
+        '_': true
+    },
     // add your custom rules here
     rules: {
         // allow paren-less arrow functions
@@ -20,6 +26,7 @@ module.exports = {
         'generator-star-spacing': 0,
         //
         'space-before-function-paren': [0, "always"],
+        "keyword-spacing": 0,
         // 4 space indent
         'indent': [2, 4, { "SwitchCase": 1 }],
         // disable no-new
