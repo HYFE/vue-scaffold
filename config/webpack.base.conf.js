@@ -16,8 +16,13 @@ module.exports = {
         extensions: ['', '.js', '.vue'],
         fallback: [path.join(__dirname, '../node_modules')],
         alias: {
-            'src': path.resolve(__dirname, '../src'),
-            'components': 'src/components'
+            src: path.resolve(__dirname, '../src'),
+            components: 'src/components',
+            view: 'src/view',
+            less: 'src/less',
+            assets: 'src/assets',
+            fonts: 'assets/fonts',
+            images: 'assets/images'
         }
     },
     resolveLoader: {
@@ -50,11 +55,18 @@ module.exports = {
             test: /\.html$/,
             loader: 'vue-html'
         }, {
-            test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf)(\?.*)?$/,
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url',
             query: {
                 limit: 10000,
-                name: '[name].[hash:7].[ext]'
+                name: 'assets/images/[name].[hash:7].[ext]'
+            }
+        }, {
+            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+            loader: 'url',
+            query: {
+                limit: 10000,
+                name: 'assets/fonts/[name].[hash:7].[ext]'
             }
         }]
     },

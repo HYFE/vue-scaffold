@@ -34,7 +34,7 @@ module.exports = merge(baseConfig, {
             }
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new ExtractTextPlugin('[name].[contenthash].css'),
+        new ExtractTextPlugin('assets/[name].[contenthash].css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html',
