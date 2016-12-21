@@ -9,7 +9,8 @@ module.exports = [
                 "310000": "上海市",
                 "320000": "江苏省",
                 "330000": "浙江省",
-                "340000": "安徽省"
+                "340000": "安徽省",
+                "350000": "河南省"
             }
         }
     },
@@ -22,7 +23,7 @@ module.exports = [
         // @req: Express request
         data(req) {
             const type = req.param('type')
-            if(type === 'array') {
+            if (type === 'array') {
                 return {
                     "citys|1-10": [
                         "Mock.js"
@@ -30,7 +31,7 @@ module.exports = [
                 }
             }
             return {
-                "name" : "Mock.js"
+                "name": "Mock.js"
             }
         }
     },

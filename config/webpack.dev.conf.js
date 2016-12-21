@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // add hot-reload related code to entry chunks
-Object.keys(baseConfig.entry).forEach( name => {
+Object.keys(baseConfig.entry).forEach(name => {
     baseConfig.entry[name] = ['./config/dev-client'].concat(baseConfig.entry[name])
 })
 
@@ -30,8 +30,10 @@ module.exports = merge(baseConfig, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
+            title: 'BCMP',
             filename: 'index.html',
-            template: 'src/index.html',
+            template: '!!ejs!src/index.html',
+            NODE_ENV: 'dev',
             inject: true
         })
     ]
