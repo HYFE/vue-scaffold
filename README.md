@@ -41,6 +41,9 @@ $ cd vue-project
 # 安装依赖
 $ npm install
 
+# 全局安装 supervisor，监视开发服务器和 webpack 配置等代码更改
+$ npm install supervisor -g
+
 # 启动开发服务
 $ npm run dev
 
