@@ -7,7 +7,7 @@
     "email": "634206017@qq.com"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev supervisor -w config -i src config/dev-server.js",
+    "dev": "start http://localhost:3000 & cross-env NODE_ENV=dev supervisor -w config -i src config/dev-server.js",
     "build": "node config/build.js",
     "e2e": "node test/e2e/runner.js"
   },
