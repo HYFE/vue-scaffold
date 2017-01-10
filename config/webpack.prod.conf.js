@@ -44,7 +44,8 @@ module.exports = merge(baseConfig, {
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
-                removeAttributeQuotes: true
+                removeAttributeQuotes: true,
+                removeScriptTypeAttributes: true
             }
         })
     ]
