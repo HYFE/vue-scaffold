@@ -462,6 +462,26 @@ export default {
 }
 ```
 
+`Props` 定义：
+
+```js
+// bad, 只写了属性声明
+export default {
+    props: ['data', 'show']
+}
+
+// good, 属性声明 + 类型约束 + 必要的默认值
+export default {
+    props: {
+        data: Array,
+        show: {
+            type: Boolean,
+            default: false
+        }
+    }
+}
+```
+
 ### 3.模版
 
 事件无额外参数时，不需要写括号，默认参数即为 `event`。
@@ -505,6 +525,43 @@ export default {
 <my-loding :show="show"></my-loding>
 <!-- good -->
 <my-loding :show="show"/>
+```
+
+### 4.样式
+
+`scoped` 声明：
+
+```html
+<template>
+    <div class="red"></div>
+</template>
+<style scoped>
+.red {
+    color: red
+}
+</style>
+```
+
+生成：
+
+```html
+<div class="a[v-xxxxx]" v-xxxxx></div>
+```
+
+Vue 会在每个组件生成唯一标识属性，生成属性选择器，而属性选择器的性能是较低的。
+
+**推荐：**
+尽量不用 `scoped` 约束样式作用域，而是使用基于 `class` 的命名空间限制作用域。
+
+```html
+<template>
+    <div class="module-red"></div>
+</template>
+<style>
+.module-red {
+    color: red
+}
+</style>
 ```
 
 ### 其他
