@@ -5,12 +5,12 @@ module.exports = [
         url: '/city',
         // Mock template
         data: {
-            "citys|1-10": {
-                "310000": "上海市",
-                "320000": "江苏省",
-                "330000": "浙江省",
-                "340000": "安徽省",
-                "350000": "河南省"
+            'citys|1-10': {
+                '310000': '上海市',
+                '320000': '江苏省',
+                '330000': '浙江省',
+                '340000': '安徽省',
+                '350000': '河南省'
             }
         }
     },
@@ -25,13 +25,13 @@ module.exports = [
             const type = req.param('type')
             if (type === 'array') {
                 return {
-                    "citys|1-10": [
-                        "Mock.js"
+                    'citys|1-10': [
+                        'Mock.js'
                     ]
                 }
             }
             return {
-                "name": "Mock.js"
+                'name': 'Mock.js'
             }
         }
     },
@@ -43,11 +43,11 @@ module.exports = [
         // default method is get
         method: 'post',
         data: {
-            "citys|2": {
-                "310000": "上海市",
-                "320000": "江苏省",
-                "330000": "浙江省",
-                "340000": "安徽省"
+            'citys|2': {
+                '310000': '上海市',
+                '320000': '江苏省',
+                '330000': '浙江省',
+                '340000': '安徽省'
             }
         }
     }
