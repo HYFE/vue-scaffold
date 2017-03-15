@@ -36,7 +36,7 @@ module.exports = merge(baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin('assets/[name].[contenthash].css'),
         new HtmlWebpackPlugin({
-            title: 'BCMP',
+            title: 'Vue',
             filename: 'index.html',
             template: 'src/index.html',
             inject: true,

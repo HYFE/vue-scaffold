@@ -1,5 +1,5 @@
 <style lang="less">
-@import './less/app';
+@import 'less/app';
 #app {
     margin: 30px;
 }

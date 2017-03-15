@@ -2,7 +2,7 @@ module.exports = [
     // template example
     {
         // url
-        url: '/city',
+        url: '/',
         // Mock template
         data: {
             'citys|1-10': {
@@ -17,12 +17,12 @@ module.exports = [
     // function example
     // 适用于需要动态切换数据的场景
     {
-        url: '/bbb/:type',
+        url: '/:type',
         // Mock function
         // 根据参数动态切换数据
         // @req: Express request
         data(req) {
-            const type = req.param('type')
+            const type = req.params.type
             if (type === 'array') {
                 return {
                     'citys|1-10': [

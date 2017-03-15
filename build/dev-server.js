@@ -1,7 +1,7 @@
 const express = require('express')
 const webpack = require('webpack')
 const config = require('./webpack.dev.conf')
-const proxyMiddleware = require('http-proxy-middleware')
+// const proxyMiddleware = require('http-proxy-middleware')
 const reload = require('reload')
 const http = require('http')
 
@@ -37,7 +37,7 @@ app.use('/src', express.static('./src'))
 // mock router
 require('./mock.routes')(app)
 
-const server = http.createServer(app);
+const server = http.createServer(app)
 reload(server, app)
 
 module.exports = server.listen(3000, err => {

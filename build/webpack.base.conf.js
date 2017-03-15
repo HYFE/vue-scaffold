@@ -22,9 +22,10 @@ module.exports = {
             components: 'src/components',
             view: 'src/view',
             less: 'src/less',
+            api: 'src/api',
             assets: 'src/assets',
             fonts: 'assets/fonts',
-            images: 'assets/images'
+            images: 'assets/images',
         }
     },
     resolveLoader: {
