@@ -3,6 +3,9 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.conf')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const LodashWebpackPlugin = require('lodash-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const projectConf = require('./config')
 
 module.exports = merge(baseConfig, {
     module: {
@@ -14,7 +17,8 @@ module.exports = merge(baseConfig, {
     devtool: '#source-map',
     output: {
         filename: '[name].[chunkhash].js',
-        chunkFilename: '[id].[chunkhash].js'
+        chunkFilename: '[id].[chunkhash].js',
+        path: path.resolve(__dirname, '../' + projectConf.distDir)
     },
     vue: {
         loaders: {
@@ -36,17 +40,32 @@ module.exports = merge(baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin('assets/[name].[contenthash].css'),
         new HtmlWebpackPlugin({
-            title: 'Vue',
-            filename: 'index.html',
-            template: 'src/index.html',
             inject: true,
             NODE_ENV: 'prod',
+            title: projectConf.templateTitle,
+            filename: projectConf.templateOutput,
+            template: 'src/index.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
                 removeAttributeQuotes: true,
                 removeScriptTypeAttributes: true
+            },
+            chunksSortMode: 'dependency'
+        }),
+        new LodashWebpackPlugin({
+            paths: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks(module, count) {
+                return module.resource && /\.js$/.test(module.resource) && module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
             }
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            chunks: ['vendor']
+        }),
+        new BundleAnalyzerPlugin()
     ]
 })

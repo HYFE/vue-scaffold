@@ -4,6 +4,6 @@ import Ajax, { GET } from './ajax'
 const CityApi = new Ajax('./city')
 
 // 如果需要额外的个性化请求，借助 GET、POST、PUT、DELETE 工具方法添加
-CityApi.paging = GET('/xxx')
+CityApi.paging = GET('/city')
 
 export default CityApi

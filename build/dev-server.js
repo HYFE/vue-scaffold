@@ -3,7 +3,9 @@ const webpack = require('webpack')
 const config = require('./webpack.dev.conf')
 // const proxyMiddleware = require('http-proxy-middleware')
 const reload = require('reload')
+const opn = require('opn')
 const http = require('http')
+const projectConf = require('./config')
 
 const app = express()
 const compiler = webpack(config)
@@ -40,11 +42,12 @@ require('./mock.routes')(app)
 const server = http.createServer(app)
 reload(server, app)
 
-module.exports = server.listen(3000, err => {
+module.exports = server.listen(projectConf.devPort, err => {
     if (err) {
         console.log(err)
         return
     }
-    const uri = 'http://localhost:3000'
+    const uri = 'http://localhost:' + projectConf.devPort
     console.log(`Listening at ${uri}\n`)
+    opn(uri)
 })

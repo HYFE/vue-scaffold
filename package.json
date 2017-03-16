@@ -7,7 +7,7 @@
     "email": "634206017@qq.com"
   },
   "scripts": {
-    "dev": "start http://localhost:3000 & cross-env NODE_ENV=dev supervisor -w mock -i src build/dev-server.js",
+    "dev": "cross-env NODE_ENV=dev supervisor -w mock -i src build/dev-server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -62,6 +62,7 @@
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^1.13.2",
+    "webpack-bundle-analyzer": "^2.3.1",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"

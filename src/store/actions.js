@@ -1,9 +1,14 @@
-import API from '../api'
+import CityApi from 'api/city'
 
 export default {
     getCitys(store) {
-        API.getCitys().then(data => {
+        console.log(store)
+        CityApi.all().then(data => {
+            window.__vue_citys = data.citys
             store.commit('citys', data.citys)
         })
+    },
+    deleteCity({ commit }, id) {
+        commit('delCity', id)
     }
 }
