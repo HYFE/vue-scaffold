@@ -57,7 +57,7 @@ export default class Api {
     }
 
     update(id, m) {
-        return PUT(this.url + id, QS(m))
+        return PUT(this.url + id, m)
     }
 
     delete(id, params) {
