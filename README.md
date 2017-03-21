@@ -80,6 +80,7 @@ $ npm run build
 │   │   │   └── ...
 │   │   ├── nightwatch.conf.js  # nightwatch 配置
 │   │   ├── runner.js           # e2e start
+├── dic.yml                     # 项目内关键字命名字典，供所有人查阅
 ├── .editorconfig               # 编辑器配置
 ├── .eslintignore               # eslint ignore conf
 ├── .eslintrc.js                # eslint conf
