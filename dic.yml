@@ -1,1 +1,7 @@
-hello: 你好
+action:
+  add: 添加
+  get: 获取
+
+model:
+  project: 项目
+  user: 用户
