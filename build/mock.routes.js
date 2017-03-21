@@ -2,7 +2,7 @@ const Mock = require('mockjs')
 const path = require('path')
 const fs = require('fs')
 const mockPath = path.resolve(__dirname, '../mock')
-const apiRoot = '/api/'
+const apiRoot = require('./config').apiRoot
 
 module.exports = app => {
     fs.readdirSync(mockPath).forEach(file => {
