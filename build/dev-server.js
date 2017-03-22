@@ -5,6 +5,7 @@ const config = require('./webpack.dev.conf')
 const reload = require('reload')
 const opn = require('opn')
 const http = require('http')
+const bodyParser = require('body-parser')
 const projectConf = require('./config')
 
 const app = express()
@@ -32,6 +33,9 @@ app.use(require('connect-history-api-fallback')())
 
 app.use(devMiddleware)
 app.use(hotMiddleware)
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // serve pure static assets
 app.use('/src', express.static('./src'))

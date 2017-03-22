@@ -45,7 +45,7 @@ $ npm run build
 │   └── ...                     # mock路由和数据配置
 ├── src/
 │   ├── main.js                 # 项目入口文件
-│   ├── router/               # 路由配置
+│   ├── router/                 # 路由配置
 │   │   └── ...
 │   ├── App.vue                 # main app component
 │   ├── index.html              # index.html
@@ -72,6 +72,8 @@ $ npm run build
 │   │   │   └── ...
 │   ├── api/
 │   │   └── index.js            # 最终请求后端的地方
+├── upload/                     # 模拟文件上传目录
+│   └── ...
 ├── test/
 │   ├── e2e/                    # e2e test
 │   │   ├── custom-assertions/  # 自定义断言
