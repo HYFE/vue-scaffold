@@ -3,7 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const mockPath = path.resolve(__dirname, '../mock')
 const config = require('./config')
-const uploadPath = path.join(__dirname, config.uploadPath)
+const uploadDir = path.join(__dirname, config.uploadDir)
 
 module.exports = app => {
     fs.readdirSync(mockPath).forEach(file => {
@@ -17,7 +17,7 @@ module.exports = app => {
     })
 
     app.post(config.apiRoot + config.uploadUrl, (req, res) => {
-        const form = new multiparty.Form({ uploadDir: uploadPath })
+        const form = new multiparty.Form({ uploadDir })
 
         form.parse(req, (err, fields, files) => {
             let filesTmp = JSON.stringify(files, null, 2)
@@ -27,7 +27,7 @@ module.exports = app => {
             } else {
                 let inputFile = files.file[0]
                 let uploadedPath = inputFile.path
-                let dstPath = uploadPath + inputFile.originalFilename
+                let dstPath = uploadDir + inputFile.originalFilename
 
                 fs.rename(uploadedPath, dstPath, e => {
                     if(err)  console.log('Upload rename error: ' + e)

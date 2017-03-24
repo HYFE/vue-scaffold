@@ -1,18 +1,16 @@
 <template>
-    <div class="tree-item">
-        <div class="tree-item-content" @click="onClick">
-            <i class="tree-item-arrow"
-                :class="{ placeholder: !hasChilds, active: expand}"></i>
-            <label class="tree-item-checkbox">
+    <div :class="$style.tree_item">
+        <div :class="$style.tree_item_content" @click="onClick">
+            <i :class="[$style.tree_item_arrow, { [$style.placeholder]: !hasChilds, [$style.active]: expand}]"></i>
+            <label :class="$style.tree_item_checkbox">
                 <input type="checkbox" @change="onCheck($event.target.checked)" ref="checkbox">
-                <span class="tree-item-check-icon"></span>
+                <span :class="$style.tree_item_check_icon"></span>
             </label>
-            <span class="tree-item-text">{{data.value}}</span>
+            <span :class="$style.tree_item_text">{{data.value}}</span>
         </div>
-        <div class="tree-item-childs"
+        <div :class="[$style.tree_item_childs, { [$style.show]: expand}]"
             ref="childs"
             v-if="hasChilds"
-            :class="{ show: expand}"
             :style="{ maxHeight : expand ? childHeight + 'px' : 0}"
             @transitionend="onExpanded"
             @transitionstart="onStartExpand">
@@ -20,7 +18,8 @@
                 :parent-checks="checks"
                 :level="level + 1"
                 @on-check="onChildCheck"
-                v-for="item in data.childs"></tree-item>
+                v-for="item in data.childs"
+                key="key"></tree-item>
         </div>
     </div>
 </template>
@@ -93,12 +92,12 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.tree-item {
+<style module="$style" lang="less">
+.tree_item {
     position: relative;
     overflow: hidden;
 }
-.tree-item-childs {
+.tree_item_childs {
     margin-left: 10px;
     padding-left: 10px;
     border-left: 1px dotted #bbb;
@@ -110,7 +109,7 @@ export default {
         opacity: 1;
     }
 }
-.tree-item-content {
+.tree_item_content {
     position: relative;
     z-index: 2;
     padding: 0 8px;
@@ -121,7 +120,7 @@ export default {
         background: rgba(0, 0, 0, .06)
     }
 }
-.tree-item-arrow {
+.tree_item_arrow {
     display: inline-block;
     width: 0;
     height: 0;
@@ -148,7 +147,7 @@ export default {
         transform: translateY(-50%)
     }
 }
-.tree-item-checkbox {
+.tree_item_checkbox {
     position: relative;
     display: inline-block;
     margin-right: 8px;
@@ -162,7 +161,7 @@ export default {
         outline: none;
         margin: 0;
         &:checked {
-            + .tree-item-check-icon {
+            + .tree_item_check_icon {
                 border-color: #2196f3;
                 background: #2196f3;
                 &:after {
@@ -173,12 +172,12 @@ export default {
         }
     }
     &:hover {
-        .tree-item-check-icon {
+        .tree_item_check_icon {
             border-color: #2196f3
         }
     }
 }
-.tree-item-check-icon {
+.tree_item_check_icon {
     position: relative;
     display: inline-block;
     width: 18px;
@@ -201,7 +200,7 @@ export default {
         transform: rotate(45deg) scale(0);
     }
 }
-.tree-item-text {
+.tree_item_text {
     display: inline-block;
     vertical-align: middle;
 }

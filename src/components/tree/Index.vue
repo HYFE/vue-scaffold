@@ -1,5 +1,5 @@
 <template>
-    <div class="tree">
+    <div>
         <template
             v-if="data instanceof Array"
             v-for="item in data">
@@ -23,5 +23,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-</style>
