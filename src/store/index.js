@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './actions'
+import Cache from './plugins/cache'
 
 Vue.use(Vuex)
 
@@ -16,5 +17,7 @@ export default new Vuex.Store({
             return Object.keys(state.citys).length
         }
     },
-    modules: {}
+    plugins: [
+        Cache
+    ]
 })

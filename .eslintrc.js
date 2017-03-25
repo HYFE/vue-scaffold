@@ -26,6 +26,7 @@ module.exports = {
         'generator-star-spacing': 0,
         //
         'space-before-function-paren': [0, "always"],
+        'comma-dangle': ['error', 'ignore'],
         "keyword-spacing": 0,
         // 4 space indent
         'indent': [2, 4, { "SwitchCase": 1 }],

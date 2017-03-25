@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>Demo1</h2>
-        <button @click="e => getData(e)">Get</button>
+        <button @click="getData">Get</button>
         <ul>
             <li v-for="(item, k) in citys">{{ item }}  <a href="#" @click.stop="del(k)">删除</a></li>
         </ul>
@@ -14,7 +14,7 @@
 <script>
 export default {
     methods: {
-        getData(e) {
+        getData() {
             // arrow functions in v-on handlers
             // console.log(e)
             this.$store.dispatch('getCitys')
