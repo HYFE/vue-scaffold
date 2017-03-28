@@ -18,13 +18,15 @@ const isSupported = () => {
 }
 
 /**
- * 封装 browserStorage
+ * browserStorage
  */
 const browserStorage = () => {
     const storage = __localStorage
     return {
         get: key => JSON.parse(storage.getItem(key)),
-        save: (key, data) => storage.setItem(key, JSON.stringify(data))
+        save: (key, data) => storage.setItem(key, JSON.stringify(data)),
+        remove: key => storage.removeItem(key),
+        clear: () => storage.clear()
     }
 }
 
@@ -32,16 +34,17 @@ const browserStorage = () => {
  * ramStorage
  */
 const ramStorage = () => {
-    const storage = {}
+    const storage = new Map()
     return {
-        get: key => storage[key],
-        save: (key, data) => {
-            storage[key] = data
-        },
+        get: key => storage.get(key),
+        save: (key, data) => storage.set(key, data),
+        remove: key => storage.delete(key),
+        clear: () => storage.clear()
     }
 }
 
 /**
+ * cacheStore fallback
  * 不支持 localStorage 时，回退 ramStorage
  */
 const cacheStore = isSupported() ? browserStorage() : ramStorage()
